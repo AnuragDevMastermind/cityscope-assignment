@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground-1: oklch(0.97 0.0013 286.38);
+  --foreground-2: oklch(0.92 0.004 286.32);
+  --primary: oklch(0.76 0.1265 174.03);
+  --secondary: oklch(0.8853 0 0);
+  --txt-1: oklch(0 0 0);
+  --txt-2: oklch(0.68 0 0);
+  --txt-3: oklch(0.4819 0 0);
+  --border-1: oklch(0.92 0.004 286.32);
+  --border-2: oklch(0.55 0.0153 285.89);
+  --error: oklch(0.69 0.1998 23.98);
+  --icon: oklch(0.5897 0 0);
+  --radius: 0.625rem;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+@theme {
+  --animate-indeterminate: indeterminate 4s ease-in-out infinite;
+
+  @keyframes indeterminate {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    50% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(400%);
+    }
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground-1: var(--foreground-1);
+  --color-foreground-2: var(--foreground-2);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-txt-1: var(--txt-1);
+  --color-txt-2: var(--txt-2);
+  --color-txt-3: var(--txt-3);
+  --color-border-1: var(--border-1);
+  --color-border-2: var(--border-2);
+  --color-error: var(--error);
+  --color-icon: var(--icon);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border-1 outline-primary/50;
+
+  }
+
+  body {
+    @apply bg-background text-txt-1
+  }
+}
